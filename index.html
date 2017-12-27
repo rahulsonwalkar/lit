@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -7,6 +6,10 @@
 <style>
 body {
     font-family: "Arial", Times, serif;
+    font-size: 18px;
+}
+div.boundry {
+	width: 55%
 }
 .hearts {color: #ff0000;}
 .diamonds {color: #ff0000;}
@@ -24,8 +27,8 @@ $(document).ready(function() {
         .find('option')
         .remove()
         .end()
-        .append('<option value="" disabled selected>Choose</option>')
-        .append('</option><option value="X">X</option>')
+        .append('<option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option>')
+        .append('</option><option value="X">&#x274c;</option>')
         .val('');
 	});
 });
@@ -43,8 +46,8 @@ function setTeams() {
         .find('option')
         .remove()
         .end()
-        .append('<option value="" disabled selected>Choose</option>')
-        .append('</option><option value="X">X</option>')
+        .append('<option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option>')
+        .append('</option><option value="X">&#x274c;</option>')
         .val('');
 	});
 //Since DOM objects cannot be reused, create an array of identical objects.
@@ -113,7 +116,6 @@ function setTeams() {
 	optionList[29].text = "0.5" +document.getElementById("team2").value;
 	optionList[30].text = "0.5" +document.getElementById("team1").value;
 	optionList[31].text = "0.5" +document.getElementById("team2").value;
-
   lClub.add(optionList[0], lClub[0]);
 	lClub.add(optionList[1], lClub[1]);
 	lHeart.add(optionList[2], lHeart[0]);
@@ -150,6 +152,7 @@ function setTeams() {
 }
 </script>
 <center>
+<div class="boundry">
 <br>
 <br>
 <br>
@@ -176,7 +179,7 @@ function setTeams() {
       <br>
       
       <div class="col s12" >
-        <table class="striped centered responsive-table">
+        <table class="centered responsive-table">
             <thead>
                 <tr>
                      <th>  </th>
@@ -190,33 +193,34 @@ function setTeams() {
                 <tr>
                      <td><b>3-8</b></td>
                      <td> 
-                        <select class="browser-default" id="lClub"><option value="Choose" disabled selected></option></select>
+                        <select class="browser-default" id="lClub"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select>
                      </td>
                      <td> 
-                        <select class="browser-default" id="lHeart"><option value="Choose" disabled selected></option></select> 
+                        <select class="browser-default" id="lHeart"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select> 
                      </td>
                      <td> 
-                        <select class="browser-default" id="lDiamonds"><option value="Choose" disabled selected></option></select> 
+                        <select class="browser-default" id="lDiamonds"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select> 
                      </td>
                      <td> 
-                        <select class="browser-default" id="lSpades"><option value="Choose" disabled selected></option></select> 
+                        <select class="browser-default" id="lSpades"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select> 
                      </td>
                 </tr>
                 <tr>
                      <td><b>9-A</b></td>
                      <td> 
-                        <select class="browser-default" id="hClub"><option value="Choose" disabled selected></select>
+                        <select class="browser-default" id="hClub"><option value=""></option></select>
                      </td>
                      <td> 
-                        <select class="browser-default" id="hHeart"><option value="Choose" disabled selected></option></select> 
+                        <select class="browser-default" id="hHeart"><option value=""></option></select> 
                      </td>
                      <td> 
-                        <select class="browser-default" id="hDiamonds"><option value="Choose" disabled selected></option></select> 
+                        <select class="browser-default" id="hDiamonds"><option value=""></option></select> 
                      </td>
                      <td> 
-                        <select class="browser-default" id="hSpades"><option value="Choose" disabled selected></option></select> 
+                        <select class="browser-default" id="hSpades"><option value=""></option></select> 
                      </td>
                  </tr>
+                 
             </tbody>
          </table>
         </div>
@@ -232,7 +236,8 @@ function setTeams() {
 <br>
 <br>
 <br>
-<br> <a href="https://en.wikipedia.org/wiki/Literature_(card_game)">Rules of Literature</a>  --  <a href="http://rahul.ru">Rahul Sonwalkar</a> 
+<br> <a href="https://en.wikipedia.org/wiki/Literature_(card_game)">Rules of Literature</a>    |    <a href="http://rahul.ru">Rahul Sonwalkar</a> &#x1f525; &#x1f525;
+</div>
 </center>
 </body>
 </html>
