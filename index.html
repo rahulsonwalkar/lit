@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title> Lit: Score Tracker for Literature</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lit: Score Tracker for Literature</title>
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
@@ -13,7 +13,7 @@ body {
     font-size: 18px;
 }
 div.boundry {
-	width: 55%
+	width: 100%
 }
 .hearts {color: #ff0000;}
 .diamonds {color: #ff0000;}
@@ -86,7 +86,7 @@ function setTeams() {
  document.createElement("option"),
  document.createElement("option"),
  document.createElement("option"),
- document.createElement("option")]	
+ document.createElement("option")]
 	optionList[0].text = document.getElementById("team1").value;
 	optionList[1].text = document.getElementById("team2").value;
 	optionList[2].text = document.getElementById("team1").value;
@@ -103,7 +103,7 @@ function setTeams() {
 	optionList[13].text = document.getElementById("team2").value;
 	optionList[14].text = document.getElementById("team1").value;
 	optionList[15].text = document.getElementById("team2").value;
-    
+
     optionList[16].text = "0.5" + document.getElementById("team1").value;
 	optionList[17].text = "0.5" +document.getElementById("team2").value;
 	optionList[18].text = "0.5" +document.getElementById("team1").value;
@@ -136,7 +136,7 @@ function setTeams() {
 	hDiamonds.add(optionList[13], hDiamonds[1]);
   hSpades.add(optionList[14], hSpades[0]);
 	hSpades.add(optionList[15], hSpades[1]);
-    
+
 	lClub.add(optionList[16], lClub[2]);
 	lClub.add(optionList[17], lClub[3]);
 	lHeart.add(optionList[18], lHeart[2]);
@@ -162,15 +162,16 @@ function setTeams() {
 <br>
 
   <div class="row">
+    <div class="col s12 m9 l6">
     <form class="col s12">
       <div class="row">
-        <div class="col s5">
+        <div class="col s6">
           Team 1:
           <div class="input-field inline">
             <input type="text" id="team1" placeholder="Name">
           </div>
         </div>
-        <div class="col s7" style="float: right">
+        <div class="col s6">
           Team 2:
           <div class="input-field inline">
             <input type="text" id="team2" placeholder="Name">
@@ -181,7 +182,7 @@ function setTeams() {
         </div>
       </div>
       <br>
-      
+
       <div class="col s12" >
         <table class="centered responsive-table">
             <thead>
@@ -196,51 +197,52 @@ function setTeams() {
             <tbody>
                 <tr>
                      <td><b>3-8</b></td>
-                     <td> 
+                     <td>
                         <select class="browser-default" id="lClub"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select>
                      </td>
-                     <td> 
-                        <select class="browser-default" id="lHeart"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select> 
+                     <td>
+                        <select class="browser-default" id="lHeart"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select>
                      </td>
-                     <td> 
-                        <select class="browser-default" id="lDiamonds"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select> 
+                     <td>
+                        <select class="browser-default" id="lDiamonds"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select>
                      </td>
-                     <td> 
-                        <select class="browser-default" id="lSpades"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select> 
+                     <td>
+                        <select class="browser-default" id="lSpades"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select>
                      </td>
                 </tr>
                 <tr>
                      <td><b>9-A</b></td>
-                     <td> 
+                     <td>
                         <select class="browser-default" id="hClub"><option value=""></option></select>
                      </td>
-                     <td> 
-                        <select class="browser-default" id="hHeart"><option value=""></option></select> 
+                     <td>
+                        <select class="browser-default" id="hHeart"><option value=""></option></select>
                      </td>
-                     <td> 
-                        <select class="browser-default" id="hDiamonds"><option value=""></option></select> 
+                     <td>
+                        <select class="browser-default" id="hDiamonds"><option value=""></option></select>
                      </td>
-                     <td> 
-                        <select class="browser-default" id="hSpades"><option value=""></option></select> 
+                     <td>
+                        <select class="browser-default" id="hSpades"><option value=""></option></select>
                      </td>
                  </tr>
-                 
+
             </tbody>
          </table>
         </div>
-        
+
     </form>
+    </div>
   </div>
- 
 
 
+
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
-<br> <a href="https://en.wikipedia.org/wiki/Literature_(card_game)">Rules of Literature</a>    |    <a href="http://rahul.ru">Rahul Sonwalkar</a> &#x1f525; &#x1f525;
+<br> <a href="https://en.wikipedia.org/wiki/Literature_(card_game)">Rules of Literature</a>    |    <a href="https://github.com/rahulsonwalkar/lit">Contribute</a>    |    <a href="http://rahul.ru">Rahul Sonwalkar</a> &#x1f525;
 </div>
 </center>
 </body>
