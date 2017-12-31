@@ -2,8 +2,13 @@ var score1 = 0;
 var score2 = 0;
 const groups = ["lClub", "lHeart", "lDiamonds", "lSpades", "hClub", "hHeart", "hDiamonds", "hSpades"];
 
+$(document).ready(function() {
+	$('select').prop("disabled",true);
+});
+
 function setTeams() {
 	$("#setTeamsButton").prop("disabled",true);
+	$("select").prop("disabled",false);
 	$("#clearButton").prop("disabled",false);
 	$("#resetButton").prop("disabled",false);
 	groups.forEach(function(group) {
@@ -34,6 +39,7 @@ function clearScores() {
 
 function resetTeams() {
 	$("#setTeamsButton").prop("disabled",false);
+	$("select").prop("disabled",false);
 	$("#clearButton").prop("disabled",true);
 	$("#resetButton").prop("disabled",true);
 	groups.forEach(function(group) {
