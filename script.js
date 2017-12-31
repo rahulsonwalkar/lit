@@ -1,9 +1,10 @@
 var score1 = 0;
 var score2 = 0;
 const groups = ["lClub", "lHeart", "lDiamonds", "lSpades", "hClub", "hHeart", "hDiamonds", "hSpades"];
-
+const emptyValue = "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;";
 $(document).ready(function() {
-	$('select').prop("disabled",true);
+	$("select").prop("disabled",true);
+	$("#clearButton").click(clearScores);
 });
 
 function setTeams() {
@@ -32,7 +33,7 @@ function clearScores() {
 	groups.forEach(function(group) {
         $('#'+group)
         .find('option')
-        .val(' ')
+        .val(emptyValue)
         .attr('selected','selected');
 	});
 }
@@ -47,6 +48,6 @@ function resetTeams() {
         $('#'+group)
         .empty()
         .append(optionElement)
-        .val(' ');
+        .val(emptyValue);
 	});
 }
