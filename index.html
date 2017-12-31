@@ -15,7 +15,6 @@ body {
 }
 div.boundry {
 	width: 100%
-
 }
 .hearts {color: #ff0000;}
 .diamonds {color: #ff0000;}
@@ -57,71 +56,17 @@ function setTeams() {
         .val('');
 	});
 //Since DOM objects cannot be reused, create an array of identical objects.
-	var optionList = [ document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option")]
-	optionList[0].text = document.getElementById("team1").value;
-	optionList[1].text = document.getElementById("team2").value;
-	optionList[2].text = document.getElementById("team1").value;
-	optionList[3].text = document.getElementById("team2").value;
-	optionList[4].text = document.getElementById("team1").value;
-	optionList[5].text = document.getElementById("team2").value;
-	optionList[6].text = document.getElementById("team1").value;
-	optionList[7].text = document.getElementById("team2").value;
-	optionList[8].text = document.getElementById("team1").value;
-	optionList[9].text = document.getElementById("team2").value;
-	optionList[10].text = document.getElementById("team1").value;
-	optionList[11].text = document.getElementById("team2").value;
-	optionList[12].text = document.getElementById("team1").value;
-	optionList[13].text = document.getElementById("team2").value;
-	optionList[14].text = document.getElementById("team1").value;
-	optionList[15].text = document.getElementById("team2").value;
+  var optionList = []
 
-    optionList[16].text = "0.5" + document.getElementById("team1").value;
-	optionList[17].text = "0.5" +document.getElementById("team2").value;
-	optionList[18].text = "0.5" +document.getElementById("team1").value;
-	optionList[19].text = "0.5" +document.getElementById("team2").value;
-	optionList[20].text = "0.5" +document.getElementById("team1").value;
-	optionList[21].text = "0.5" +document.getElementById("team2").value;
-	optionList[22].text = "0.5" +document.getElementById("team1").value;
-	optionList[23].text = "0.5" +document.getElementById("team2").value;
-	optionList[24].text = "0.5" +document.getElementById("team1").value;
-	optionList[25].text = "0.5" +document.getElementById("team2").value;
-	optionList[26].text = "0.5" +document.getElementById("team1").value;
-	optionList[27].text = "0.5" +document.getElementById("team2").value;
-	optionList[28].text = "0.5" +document.getElementById("team1").value;
-	optionList[29].text = "0.5" +document.getElementById("team2").value;
-	optionList[30].text = "0.5" +document.getElementById("team1").value;
-	optionList[31].text = "0.5" +document.getElementById("team2").value;
+  for(var i = 1; i <= 32; i++)
+    optionList.push(document.createElement("option"))
+
+  for(var i = 0; i < 32;){
+     optionList[i].text = document.getElementById("team1").value
+      optionList[i+1].text = document.getElementById("team2").value
+      i = i + 2
+  }
+
   lClub.add(optionList[0], lClub[0]);
 	lClub.add(optionList[1], lClub[1]);
 	lHeart.add(optionList[2], lHeart[0]);
@@ -138,7 +83,6 @@ function setTeams() {
 	hDiamonds.add(optionList[13], hDiamonds[1]);
   hSpades.add(optionList[14], hSpades[0]);
 	hSpades.add(optionList[15], hSpades[1]);
-
 	lClub.add(optionList[16], lClub[2]);
 	lClub.add(optionList[17], lClub[3]);
 	lHeart.add(optionList[18], lHeart[2]);
