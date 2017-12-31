@@ -1,0 +1,11 @@
+body {
+    font-family: "Arial", Times, serif;
+    font-size: 18px;
+    align: center;
+}
+div.boundry {
+	width: 100%
+
+}
+.hearts {color: #ff0000;}
+.diamonds {color: #ff0000;}
