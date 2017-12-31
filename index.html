@@ -1,251 +1,176 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Lit: Score Tracker for Literature</title>
-<head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Lit: Score Tracker for Literature</title>
 
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <style>
+      body {
+        font-family: "Arial", Times, serif;
+        font-size: 18px;
+        align: center;
+      }
 
-<style>
-body {
-    font-family: "Arial", Times, serif;
-    font-size: 18px;
-    align: center;
-}
-div.boundry {
-	width: 100%
+      div.boundry {
+        width: 100%
+      }
 
-}
-.hearts {color: #ff0000;}
-.diamonds {color: #ff0000;}
-</style>
-<body>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script>
-var score1 = 0;
-var score2 = 0;
-$(document).ready(function() {
-    $('select').material_select();
-    ["lClub", "lHeart", "lDiamonds", "lSpades", "hClub", "hHeart", "hDiamonds", "hSpades"].forEach(function(elem) {
-        $('#'+elem)
-        .find('option')
-        .remove()
-        .end()
-        .append('<option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option>')
-        .append('</option><option value="X">&#x274c;</option>')
-        .val('');
-	});
-});
-function setTeams() {
-    var lClub = document.getElementById("lClub");
-    var lHeart = document.getElementById("lHeart");
-    var lDiamonds = document.getElementById("lDiamonds");
-    var lSpades = document.getElementById("lSpades");
-    var hClub = document.getElementById("hClub");
-    var hHeart = document.getElementById("hHeart");
-    var hDiamonds = document.getElementById("hDiamonds");
-    var hSpades = document.getElementById("hSpades");
-    ["lClub", "lHeart", "lDiamonds", "lSpades", "hClub", "hHeart", "hDiamonds", "hSpades"].forEach(function(elem) {
-        $('#'+elem)
-        .find('option')
-        .remove()
-        .end()
-        .append('<option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option>')
-        .append('</option><option value="X">&#x274c;</option>')
-        .val('');
-	});
-//Since DOM objects cannot be reused, create an array of identical objects.
-	var optionList = [ document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option"),
- document.createElement("option")]
-	optionList[0].text = document.getElementById("team1").value;
-	optionList[1].text = document.getElementById("team2").value;
-	optionList[2].text = document.getElementById("team1").value;
-	optionList[3].text = document.getElementById("team2").value;
-	optionList[4].text = document.getElementById("team1").value;
-	optionList[5].text = document.getElementById("team2").value;
-	optionList[6].text = document.getElementById("team1").value;
-	optionList[7].text = document.getElementById("team2").value;
-	optionList[8].text = document.getElementById("team1").value;
-	optionList[9].text = document.getElementById("team2").value;
-	optionList[10].text = document.getElementById("team1").value;
-	optionList[11].text = document.getElementById("team2").value;
-	optionList[12].text = document.getElementById("team1").value;
-	optionList[13].text = document.getElementById("team2").value;
-	optionList[14].text = document.getElementById("team1").value;
-	optionList[15].text = document.getElementById("team2").value;
+      .font-red {
+        color: #ff0000;
+      }
 
-    optionList[16].text = "0.5" + document.getElementById("team1").value;
-	optionList[17].text = "0.5" +document.getElementById("team2").value;
-	optionList[18].text = "0.5" +document.getElementById("team1").value;
-	optionList[19].text = "0.5" +document.getElementById("team2").value;
-	optionList[20].text = "0.5" +document.getElementById("team1").value;
-	optionList[21].text = "0.5" +document.getElementById("team2").value;
-	optionList[22].text = "0.5" +document.getElementById("team1").value;
-	optionList[23].text = "0.5" +document.getElementById("team2").value;
-	optionList[24].text = "0.5" +document.getElementById("team1").value;
-	optionList[25].text = "0.5" +document.getElementById("team2").value;
-	optionList[26].text = "0.5" +document.getElementById("team1").value;
-	optionList[27].text = "0.5" +document.getElementById("team2").value;
-	optionList[28].text = "0.5" +document.getElementById("team1").value;
-	optionList[29].text = "0.5" +document.getElementById("team2").value;
-	optionList[30].text = "0.5" +document.getElementById("team1").value;
-	optionList[31].text = "0.5" +document.getElementById("team2").value;
-  lClub.add(optionList[0], lClub[0]);
-	lClub.add(optionList[1], lClub[1]);
-	lHeart.add(optionList[2], lHeart[0]);
-	lHeart.add(optionList[3], lHeart[1]);
-	lDiamonds.add(optionList[4], lDiamonds[0]);
-	lDiamonds.add(optionList[5], lDiamonds[1]);
-	lSpades.add(optionList[6], lSpades[0]);
-	lSpades.add(optionList[7], lSpades[1]);
-	hClub.add(optionList[8], hClub[0]);
-	hClub.add(optionList[9], hClub[1]);
-	hHeart.add(optionList[10], hHeart[0]);
-	hHeart.add(optionList[11], hHeart[1]);
-	hDiamonds.add(optionList[12], hDiamonds[0]);
-	hDiamonds.add(optionList[13], hDiamonds[1]);
-  hSpades.add(optionList[14], hSpades[0]);
-	hSpades.add(optionList[15], hSpades[1]);
+      @media (max-width: 992px) {
+          .responsive-table tr:nth-child(1){
+          padding-top: 1.2em;
+          font-size: 1.5em;
+        }
+      }
+    </style>
 
-	lClub.add(optionList[16], lClub[2]);
-	lClub.add(optionList[17], lClub[3]);
-	lHeart.add(optionList[18], lHeart[2]);
-	lHeart.add(optionList[19], lHeart[3]);
-	lDiamonds.add(optionList[20], lDiamonds[2]);
-	lDiamonds.add(optionList[21], lDiamonds[3]);
-	lSpades.add(optionList[22], lSpades[2]);
-	lSpades.add(optionList[23], lSpades[3]);
-	hClub.add(optionList[24], hClub[2]);
-	hClub.add(optionList[25], hClub[3]);
-	hHeart.add(optionList[26], hHeart[2]);
-	hHeart.add(optionList[27], hHeart[3]);
-	hDiamonds.add(optionList[28], hDiamonds[2]);
-	hDiamonds.add(optionList[29], hDiamonds[3]);
-  hSpades.add(optionList[30], hSpades[2]);
-	hSpades.add(optionList[31], hSpades[3]);
-}
-</script>
-<center>
-<div class="boundry">
-<br>
-<br>
-<br>
+    <body>
+      <center>
+        <div class="boundry">
+          <br>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col l3">
+            </div>
+            <div class="col s12 m9 l6">
+              <form class="col s12">
+                <div class="row">
+                  <div class="col s6">
+                    Team 1:
+                    <div class="input-field inline">
+                      <input type="text" id="team1" placeholder="Name">
+                    </div>
+                  </div>
+                  <div class="col s6">
+                    Team 2:
+                    <div class="input-field inline">
+                      <input type="text" id="team2" placeholder="Name">
+                    </div>
+                  </div>
+                  <div class="col s11">
+                    <button type="button" class="waves-effect waves-light btn" onclick="setTeams()">Set Teams</button>
+                  </div>
+                </div>
+                <br>
 
-  <div class="row">
-    <div class="col l3">
-    </div>
-    <div class="col s12 m9 l6">
-    <form class="col s12">
-      <div class="row">
-        <div class="col s6">
-          Team 1:
-          <div class="input-field inline">
-            <input type="text" id="team1" placeholder="Name">
+                <div class="col s12">
+                  <table class="centered responsive-table">
+                    <tbody>
+                      <tr>
+                        <th> </th>
+                        <th>&clubs; Clubs</th>
+                        <th>
+                          <span class="font-red">&hearts;</span> Hearts</th>
+                        <th>
+                          <span class="font-red">&diams;</span> Diamonds</th>
+                        <th>&spades; Spades</th>
+                      </tr>
+                      <tr>
+                        <td>
+                          <b>3-8</b>
+                        </td>
+                        <td>
+                          <select class="browser-default team-select">
+                            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="browser-default team-select">
+                            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="browser-default team-select">
+                            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="browser-default team-select">
+                            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <b>9-A</b>
+                        </td>
+                        <td>
+                          <select class="browser-default team-select">
+                            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="browser-default team-select">
+                            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="browser-default team-select">
+                            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="browser-default team-select">
+                            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                          </select>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </form>
+            </div>
           </div>
+
+
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <a href="https://en.wikipedia.org/wiki/Literature_(card_game)">Rules of Literature</a> |
+          <a href="https://github.com/rahulsonwalkar/lit">Contribute</a> |
+          <a href="http://rahul.ru">Rahul Sonwalkar</a> &#x1f525;
         </div>
-        <div class="col s6">
-          Team 2:
-          <div class="input-field inline">
-            <input type="text" id="team2" placeholder="Name">
-          </div>
-        </div>
-        <div class="col s11">
-            <button type="button" class="waves-effect waves-light btn" onclick="setTeams()">Set Teams</button>
-        </div>
-      </div>
-      <br>
+      </center>
 
-      <div class="col s12" >
-        <table class="centered responsive-table">
-              <tbody>
-                <tr>
-                     <th>  </th>
-                     <th>&clubs; Clubs</th>
-                     <th><span class="hearts">&hearts;</span> Hearts</th>
-                     <th><span class="diamonds">&diams;</span> Diamonds</th>
-                     <th>&spades; Spades</th>
-                </tr>
-                <tr>
-                     <td><b>3-8</b></td>
-                     <td>
-                        <select class="browser-default" id="lClub"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select>
-                     </td>
-                     <td>
-                        <select class="browser-default" id="lHeart"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select>
-                     </td>
-                     <td>
-                        <select class="browser-default" id="lDiamonds"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select>
-                     </td>
-                     <td>
-                        <select class="browser-default" id="lSpades"><option value="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</option></select>
-                     </td>
-                </tr>
-                <tr>
-                     <td><b>9-A</b></td>
-                     <td>
-                        <select class="browser-default" id="hClub"><option value=""></option></select>
-                     </td>
-                     <td>
-                        <select class="browser-default" id="hHeart"><option value=""></option></select>
-                     </td>
-                     <td>
-                        <select class="browser-default" id="hDiamonds"><option value=""></option></select>
-                     </td>
-                     <td>
-                        <select class="browser-default" id="hSpades"><option value=""></option></select>
-                     </td>
-                 </tr>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <script>
+        var score1 = 0;
+        var score2 = 0;
+        $(document).ready(function () {
+          $('select').material_select();
+        });
+        function setTeams() {
+          var team1_name, team2_name;
+          team1_name = document.getElementById("team1").value;;
+          team2_name = document.getElementById("team2").value;
+          var select_elements = $(".team-select");
+          var i, html_string;
+          for (i = 0; i < 8; ++i) {
+            html_string = '<option val="def"></option>';
+            html_string += '<option val="t1">' + team1_name + '</option>';
+            html_string += '<option val="t2">' + team2_name + '</option>';
+            html_string += '<option val="ht1">' + '0.5 ' + team1_name + '</option>';
+            html_string += '<option val="ht2">' + '0.5 ' + team2_name + '</option>';
+            html_string += '<option val="x">X</option>';
+            select_elements.eq(i).html(html_string);
+          }
+        }
+      </script>
+    </body>
 
-            </tbody>
-         </table>
-        </div>
-
-    </form>
-    </div>
-  </div>
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> <a href="https://en.wikipedia.org/wiki/Literature_(card_game)">Rules of Literature</a>    |    <a href="https://github.com/rahulsonwalkar/lit">Contribute</a>    |    <a href="http://rahul.ru">Rahul Sonwalkar</a> &#x1f525;
-</div>
-</center>
-</body>
 </html>
