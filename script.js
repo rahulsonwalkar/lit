@@ -3,7 +3,9 @@ var score2 = 0;
 const groups = ["lClub", "lHeart", "lDiamonds", "lSpades", "hClub", "hHeart", "hDiamonds", "hSpades"];
 
 function setTeams() {
-	
+	$("#setTeamsButton").prop("disabled",true);
+	$("#clearButton").prop("disabled",false);
+	$("#resetButton").prop("disabled",false);
 	groups.forEach(function(group) {
         optionList = Array(4);
         for (var i = 0; i < optionList.length; ++i) {
@@ -18,5 +20,27 @@ function setTeams() {
         .find('option')
         .end()
         .prepend(optionList);
+	});
+}
+
+function clearScores() {
+	groups.forEach(function(group) {
+        $('#'+group)
+        .find('option')
+        .val(' ')
+        .attr('selected','selected');
+	});
+}
+
+function resetTeams() {
+	$("#setTeamsButton").prop("disabled",false);
+	$("#clearButton").prop("disabled",true);
+	$("#resetButton").prop("disabled",true);
+	groups.forEach(function(group) {
+        let optionElement = document.createElement("option");
+        $('#'+group)
+        .empty()
+        .append(optionElement)
+        .val(' ');
 	});
 }
