@@ -11,5 +11,14 @@ div.boundry {
 button {
 	margin: 0 1rem;
 }
-.hearts {color: #ff0000;}
-.diamonds {color: #ff0000;}
+
+.font-red {
+color: #ff0000;
+}
+
+@media (max-width: 992px) {
+  .responsive-table tr:nth-child(1){
+  padding-top: 1.2em;
+  font-size: 1.5em;
+}
+}
