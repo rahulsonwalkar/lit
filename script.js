@@ -12,7 +12,7 @@ function setTeams() {
 	$("#clearButton").prop("disabled",false);
 	$("#resetButton").prop("disabled",false);
 	groups.forEach(function(group) {
-        optionList = Array(5);
+        optionList = Array(4);
         for (var i = 0; i < optionList.length; ++i) {
         	optionList[i] = document.createElement("option");
         }
@@ -20,7 +20,6 @@ function setTeams() {
         optionList[1].text = $("#team2").val();
         optionList[2].text = "0.5 " + $("#team1").val();
         optionList[3].text = "0.5 " + $("#team2").val();
-        optionList[4].text = &#x274c;
 
         $('#'+group)
         .find('option')
