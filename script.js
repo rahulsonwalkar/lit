@@ -20,7 +20,7 @@ function setTeams() {
         optionList[1].text = $("#team2").val();
         optionList[2].text = "0.5 " + $("#team1").val();
         optionList[3].text = "0.5 " + $("#team2").val();
-	optionList[4].text = "&#x274c;";
+	optionList[4].innerHTML = "&#x274c;";
         $('#'+group)
         .find('option')
         .end()
